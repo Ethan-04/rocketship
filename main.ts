@@ -1,3 +1,6 @@
+function effects2 () {
+    scene.cameraShake(2, 5000)
+}
 function background () {
     scene.setBackgroundImage(img`
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
@@ -122,6 +125,15 @@ function background () {
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
 `)
 }
+function start_countdown () {
+    info.startCountdown(1)
+}
+function loop () {
+    for (let index = 0; index < 25; index++) {
+        pause(100)
+        Rocket.y += -5
+    }
+}
 function rocket () {
     Rocket = sprites.create(img`
 . . . . . . f 2 2 2 f . . . . . 
@@ -142,18 +154,6 @@ function rocket () {
 . . f 4 2 2 4 2 4 2 4 2 2 4 f . 
 `, SpriteKind.Player)
     Rocket.setPosition(77, 111)
-}
-function effects2 () {
-    scene.cameraShake(2, 5000)
-}
-function start_countdown () {
-    info.startCountdown(1)
-}
-function loop () {
-    for (let index = 0; index < 25; index++) {
-        pause(100)
-        Rocket.y += -5
-    }
 }
 info.onCountdownEnd(function () {
     Rocket.vy += -200
